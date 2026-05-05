@@ -6,7 +6,7 @@
 /*   By: skarayil <skarayil@student.42kocaeli>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/03 00:12:31 by skarayil          #+#    #+#             */
-/*   Updated: 2026/05/03 17:43:41 by skarayil         ###   ########.fr       */
+/*   Updated: 2026/05/05 17:28:51 by skarayil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ std::string PhoneBook::_truncate(const std::string& str) const
 
 void    PhoneBook::_displayHeader() const
 {
-    std::cout << BOLD CYAN << "║" << RESET << std::setw(10) << std::right << "INDEX";
-    std::cout << BOLD CYAN << "║" << RESET << std::setw(10) << std::right << "FIRST NAME";
-    std::cout << BOLD CYAN << "║" << RESET << std::setw(10) << std::right << "LAST NAME";
-    std::cout << BOLD CYAN << "║" << RESET << std::setw(10) << std::right << "NICKNAME";
+    std::cout << BOLD CYAN << "║" << BOLD WHITE << std::setw(10) << std::right << "INDEX" << RESET;
+    std::cout << BOLD CYAN << "║" << BOLD WHITE << std::setw(10) << std::right << "FIRST NAME" << RESET;
+    std::cout << BOLD CYAN << "║" << BOLD WHITE << std::setw(10) << std::right << "LAST NAME" << RESET;
+    std::cout << BOLD CYAN << "║" << BOLD WHITE << std::setw(10) << std::right << "NICKNAME" << RESET;
     std::cout << BOLD CYAN << "║" << RESET << std::endl;
 }
 
@@ -171,10 +171,10 @@ void    PhoneBook::searchContact()
     {
         int     physicalIndex = (_startIndex + i) % 8;
         const Contact&      c = *(_contacts + physicalIndex);
-        std::cout << BOLD CYAN << "║" << RESET << std::setw(10) << std::right << Utils::ftItoa(i);
-        std::cout << BOLD CYAN << "║" << RESET << std::setw(10) << std::right << _truncate(c.getFirstName());
-        std::cout << BOLD CYAN << "║" << RESET << std::setw(10) << std::right << _truncate(c.getLastName());
-        std::cout << BOLD CYAN << "║" << RESET << std::setw(10) << std::right << _truncate(c.getNickname());
+        std::cout << BOLD CYAN << "║" << BOLD WHITE << std::setw(10) << std::right << Utils::ftItoa(i) << RESET;
+        std::cout << BOLD CYAN << "║" << BOLD WHITE << std::setw(10) << std::right << _truncate(c.getFirstName()) << RESET;
+        std::cout << BOLD CYAN << "║" << BOLD WHITE << std::setw(10) << std::right << _truncate(c.getLastName()) << RESET;
+        std::cout << BOLD CYAN << "║" << BOLD WHITE << std::setw(10) << std::right << _truncate(c.getNickname()) << RESET;
         std::cout << BOLD CYAN << "║" << RESET << std::endl;
     }
     Utils::printColored("╚═══════════════════════════════════════════╝", BOLD CYAN, true);

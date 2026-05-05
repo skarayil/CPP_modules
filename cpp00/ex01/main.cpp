@@ -1,37 +1,48 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: skarayil <skarayil@student.42kocaeli>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/03 00:12:23 by skarayil          #+#    #+#             */
-/*   Updated: 2026/05/03 00:13:08 by skarayil         ###   ########.fr       */
-/*                                                                            */
+/* */
+/* :::      ::::::::   */
+/* main.cpp                                           :+:      :+:    :+:   */
+/* +:+ +:+         +:+     */
+/* By: skarayil <skarayil@student.42kocaeli>      +#+  +:+       +#+        */
+/* +#+#+#+#+#+   +#+           */
+/* Created: 2026/05/02 14:25:29 by skarayil          #+#    #+#             */
+/* Updated: 2026/05/05 12:45:00 by skarayil         ###   ########.fr       */
+/* */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "Colors.hpp"
 #include "Utils.hpp"
+#include <iostream>
 
 int	main(void)
 {
-	PhoneBook       pb;
-	std::string     cmd;
+	PhoneBook	pb;
+	std::string	cmd;
+	bool		isRunning = true;
+
 	Utils::printColored("\n═════════════════ PHONEBOOK ═════════════════", BOLD MAGENTA, true);
-	for (;;)
+	while (isRunning)
 	{
-		Utils::printColored("\n▶ Enter command [ADD] [SEARCH] [EXIT]: ", BOLD MAGENTA);
-		if (!std::getline(std::cin, cmd) || cmd == "EXIT")
+		Utils::printColored("\n▶ Enter command [ADD] [SEARCH] [EXIT]: ", BOLD MAGENTA, false);
+		if (!std::getline(std::cin, cmd))
+		{
+			std::cin.clear();
+			Utils::printColored("\n\n═════════════ EOF EXIT ══════════════", BOLD RED, true);
+			isRunning = false;
+			continue ;
+		}
+		if (cmd == "EXIT")
 		{
 			Utils::printColored("\n═════════════ PHONEBOOK EXITED ══════════════", BOLD MAGENTA, true);
-			if (std::cin.eof()) std::cout << std::endl;
-			break ;
+			isRunning = false;
 		}
-		if (cmd == "ADD") pb.addContact();
-		else if (cmd == "SEARCH") pb.searchContact();
-		else Utils::printColored("\n▶ Invalid command. Please try again.", BOLD RED, true);
+		else if (cmd == "ADD") 
+			pb.addContact();
+		else if (cmd == "SEARCH") 
+			pb.searchContact();
+		else if (!cmd.empty()) 
+			Utils::printColored("\n▶ Invalid command. Please try again.", BOLD RED, true);
 	}
-
 	return (0);
 }

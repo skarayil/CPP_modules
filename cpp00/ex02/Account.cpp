@@ -6,22 +6,13 @@
 /*   By: skarayil <skarayil@student.42kocaeli>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 23:09:57 by skarayil          #+#    #+#             */
-/*   Updated: 2026/05/03 18:56:39 by skarayil         ###   ########.fr       */
+/*   Updated: 2026/05/05 16:21:47 by skarayil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <ctime>
 #include <iostream>
-
-namespace
-{
-	void	customPrintPad(int value)
-	{
-		if (value < 10) std::cout << "0";
-		std::cout << value;
-	}
-}
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
@@ -35,18 +26,21 @@ int Account::getNbWithdrawals(void) { return (Account::_totalNbWithdrawals); }
 
 void Account::_displayTimestamp(void)
 {
-	struct tm		*t;
-	std::time_t		rawTime;
-	std::time(&rawTime);
-	t = std::localtime(&rawTime);
-	std::cout << "[" << t->tm_year + 1900;
-	customPrintPad(t->tm_mon + 1);
-	customPrintPad(t->tm_mday);
-	std::cout << "_";
-	customPrintPad(t->tm_hour);
-	customPrintPad(t->tm_min);
-	customPrintPad(t->tm_sec);
-	std::cout << "] ";
+    struct tm		*t;
+    std::time_t		rawTime;
+    std::time(&rawTime);
+    t = std::localtime(&rawTime);
+    std::cout << "[" << t->tm_year + 1900;
+    if (t->tm_mon + 1 < 10) std::cout << "0";
+	std::cout << t->tm_mon + 1;
+    if (t->tm_mday < 10) std::cout << "0";
+    std::cout << t->tm_mday << "_";
+    if (t->tm_hour < 10) std::cout << "0";
+    std::cout << t->tm_hour;
+    if (t->tm_min < 10) std::cout << "0";
+    std::cout << t->tm_min;
+    if (t->tm_sec < 10) std::cout << "0";
+    std::cout << t->tm_sec << "] ";
 }
 
 Account::Account(void) : _accountIndex(Account::_nbAccounts), _amount(0),
