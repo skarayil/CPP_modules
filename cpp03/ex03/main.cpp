@@ -6,13 +6,13 @@
 /*   By: skarayil <skarayil@student.42kocaeli>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/30 17:25:31 by skarayil          #+#    #+#             */
-/*   Updated: 2026/08/30 17:25:59 by skarayil         ###   ########.fr       */
+/*   Updated: 2026/08/30 21:31:27 by skarayil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-int main()
+int main(void)
 {
     std::cout << START << "\n=== ARENA MATCH START ===\n" << FINAL << std::endl;
 

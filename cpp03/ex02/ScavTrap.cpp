@@ -6,13 +6,14 @@
 /*   By: skarayil <skarayil@student.42kocaeli>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/30 15:36:21 by skarayil          #+#    #+#             */
-/*   Updated: 2026/08/30 17:09:33 by skarayil         ###   ########.fr       */
+/*   Updated: 2026/08/30 21:19:47 by skarayil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void) : ClapTrap()
+ScavTrap::ScavTrap(void)
+    : ClapTrap()
 {
     _hitPoints = 100;
     _energyPoints = 50;
@@ -22,7 +23,8 @@ ScavTrap::ScavTrap(void) : ClapTrap()
               << FINAL << "\n\n";
 }
 
-ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
+ScavTrap::ScavTrap(const std::string& name)
+    : ClapTrap(name)
 {
     _hitPoints = 100;
     _energyPoints = 50;
@@ -32,7 +34,8 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
               << FINAL << "\n\n";
 }
 
-ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
+ScavTrap::ScavTrap(const ScavTrap& other) 
+    : ClapTrap(other)
 {
     std::cout << COPY << "ScavTrap " << _name 
               << " tactical clone deployed!" 
@@ -78,7 +81,7 @@ void ScavTrap::attack(const std::string& target)
     _energyPoints -= 1;
     std::cout << ATTACK << "ScavTrap " << _name 
               << " fires a shotgun at " << target << " for " 
-              << _attackDamage << " damage! Headshot!" 
+              << _attackDamage << " damage! Boom!" 
               << FINAL << "\n\n";
 }
 

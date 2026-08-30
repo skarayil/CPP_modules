@@ -6,26 +6,30 @@
 /*   By: skarayil <skarayil@student.42kocaeli>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/29 16:55:54 by skarayil          #+#    #+#             */
-/*   Updated: 2026/08/29 20:35:12 by skarayil         ###   ########.fr       */
+/*   Updated: 2026/08/30 21:26:19 by skarayil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <cmath>
 
-Fixed::Fixed(void) : _fixedPointValue(0)
+Fixed::Fixed(void)
+	: _fixedPointValue(0)
 {
 }
 
-Fixed::Fixed(const int value) : _fixedPointValue(value << _fractionalBits)
+Fixed::Fixed(const int value)
+	: _fixedPointValue(value << _fractionalBits)
 {
 }
 
-Fixed::Fixed(const float value) : _fixedPointValue(roundf(value * (1 << _fractionalBits)))
+Fixed::Fixed(const float value) 
+	: _fixedPointValue(roundf(value * (1 << _fractionalBits)))
 {
 }
 
-Fixed::Fixed(const Fixed &other) : _fixedPointValue(other._fixedPointValue)
+Fixed::Fixed(const Fixed &other)
+	: _fixedPointValue(other._fixedPointValue)
 {
 }
 

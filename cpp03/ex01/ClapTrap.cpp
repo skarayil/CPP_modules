@@ -6,31 +6,39 @@
 /*   By: skarayil <skarayil@student.42kocaeli>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/30 15:36:13 by skarayil          #+#    #+#             */
-/*   Updated: 2026/08/30 17:23:08 by skarayil         ###   ########.fr       */
+/*   Updated: 2026/08/30 21:04:45 by skarayil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) : _name("unnamed"), 
-    _hitPoints(10), _energyPoints(10), _attackDamage(0)
+ClapTrap::ClapTrap(void)
+    : _name("unnamed"), 
+      _hitPoints(10),
+      _energyPoints(10),
+      _attackDamage(0)
 {
 	std::cout << CONST << "ClapTrap " << _name 
               << " spawned into the arena!" 
               << FINAL << "\n\n";
 }
 
-ClapTrap::ClapTrap(const std::string &name) : _name(name), 
-    _hitPoints(10), _energyPoints(10), _attackDamage(0)
+ClapTrap::ClapTrap(const std::string &name) 
+    : _name(name), 
+      _hitPoints(10),
+      _energyPoints(10),
+      _attackDamage(0)
 {
     std::cout << CONST << "ClapTrap " << _name 
               << " spawned into the arena!" 
               << FINAL << "\n\n";
 }
 
-ClapTrap::ClapTrap(const ClapTrap& other) : _name(other._name), 
-    _hitPoints(other._hitPoints), _energyPoints(other._energyPoints),
-    _attackDamage(other._attackDamage)
+ClapTrap::ClapTrap(const ClapTrap& other) 
+    : _name(other._name), 
+      _hitPoints(other._hitPoints),
+      _energyPoints(other._energyPoints),
+      _attackDamage(other._attackDamage)
 {
     std::cout << COPY << "ClapTrap " << _name 
               << " tactical clone deployed!" 

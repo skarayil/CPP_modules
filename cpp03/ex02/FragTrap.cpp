@@ -6,13 +6,14 @@
 /*   By: skarayil <skarayil@student.42kocaeli>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/30 17:02:09 by skarayil          #+#    #+#             */
-/*   Updated: 2026/08/30 17:18:22 by skarayil         ###   ########.fr       */
+/*   Updated: 2026/08/30 21:01:13 by skarayil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(void) : ClapTrap()
+FragTrap::FragTrap(void)
+    : ClapTrap()
 {
     _hitPoints = 100;
     _energyPoints = 100;
@@ -22,7 +23,8 @@ FragTrap::FragTrap(void) : ClapTrap()
               << FINAL << "\n\n";
 }
 
-FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
+FragTrap::FragTrap(const std::string& name)
+    : ClapTrap(name)
 {
     _hitPoints = 100;
     _energyPoints = 100;
@@ -32,7 +34,8 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
               << FINAL << "\n\n";
 }
 
-FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
+FragTrap::FragTrap(const FragTrap& other) 
+    : ClapTrap(other)
 {
     std::cout << COPY << "FragTrap " << _name 
               << " tactical clone deployed!" 
