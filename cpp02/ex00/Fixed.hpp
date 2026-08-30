@@ -6,7 +6,7 @@
 /*   By: skarayil <skarayil@student.42kocaeli>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 15:05:37 by skarayil          #+#    #+#             */
-/*   Updated: 2026/08/29 22:45:10 by skarayil         ###   ########.fr       */
+/*   Updated: 2026/08/30 16:44:52 by skarayil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Fixed
 	Fixed(void);
 	Fixed(const Fixed &other);
 	Fixed &operator=(const Fixed &other);
-	~Fixed(void);
+	~Fixed();
 
 	int getRawBits(void) const;
 	void setRawBits(int const raw);

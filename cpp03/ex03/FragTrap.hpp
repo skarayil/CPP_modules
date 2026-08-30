@@ -1,44 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.cpp                                          :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skarayil <skarayil@student.42kocaeli>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/29 20:43:56 by skarayil          #+#    #+#             */
-/*   Updated: 2026/08/30 16:46:06 by skarayil         ###   ########.fr       */
+/*   Created: 2026/08/30 17:17:46 by skarayil          #+#    #+#             */
+/*   Updated: 2026/08/30 17:17:56 by skarayil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Point.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-Point::Point(void) : _x(0), _y(0)
-{
-}
+# include "ClapTrap.hpp"
 
-Point::Point(const float x, const float y) : _x(x), _y(y)
+class FragTrap : virtual public ClapTrap
 {
-}
+  public:
+	FragTrap(void);
+	FragTrap(const std::string &name);
+	FragTrap(const FragTrap &other);
+	FragTrap &operator=(const FragTrap &other);
+	~FragTrap();
 
-Point::Point(const Point &other) : _x(other._x), _y(other._y)
-{
-}
+	void attack(const std::string &target);
+	void highFivesGuys(void);
+};
 
-Point &Point::operator=(const Point &other)
-{
-	(void)other;
-	return (*this);
-}
-
-Point::~Point()
-{
-}
-
-const Fixed &Point::getX() const
-{
-	return (_x);
-}
-const Fixed &Point::getY() const
-{
-	return (_y);
-}
+#endif

@@ -6,7 +6,7 @@
 /*   By: skarayil <skarayil@student.42kocaeli>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/29 20:43:58 by skarayil          #+#    #+#             */
-/*   Updated: 2026/08/29 22:40:20 by skarayil         ###   ########.fr       */
+/*   Updated: 2026/08/30 16:46:00 by skarayil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Point
 	Point(const float x, const float y);
 	Point(const Point &other);
 	Point &operator=(const Point &other);
-	~Point(void);
+	~Point();
 
 	const Fixed &getX() const;
 	const Fixed &getY() const;

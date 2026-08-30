@@ -1,44 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.cpp                                          :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skarayil <skarayil@student.42kocaeli>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/29 20:43:56 by skarayil          #+#    #+#             */
-/*   Updated: 2026/08/30 16:46:06 by skarayil         ###   ########.fr       */
+/*   Created: 2026/08/30 15:36:23 by skarayil          #+#    #+#             */
+/*   Updated: 2026/08/30 17:10:29 by skarayil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Point.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-Point::Point(void) : _x(0), _y(0)
-{
-}
+# include "ClapTrap.hpp"
 
-Point::Point(const float x, const float y) : _x(x), _y(y)
+class ScavTrap : public ClapTrap
 {
-}
+  public:
+	ScavTrap(void);
+	ScavTrap(const std::string &name);
+	ScavTrap(const ScavTrap &other);
+	ScavTrap &operator=(const ScavTrap &other);
+	~ScavTrap();
 
-Point::Point(const Point &other) : _x(other._x), _y(other._y)
-{
-}
+	void attack(const std::string &target);
+	void guardGate(void);
+};
 
-Point &Point::operator=(const Point &other)
-{
-	(void)other;
-	return (*this);
-}
-
-Point::~Point()
-{
-}
-
-const Fixed &Point::getX() const
-{
-	return (_x);
-}
-const Fixed &Point::getY() const
-{
-	return (_y);
-}
+#endif

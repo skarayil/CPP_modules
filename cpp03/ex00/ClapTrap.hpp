@@ -1,49 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skarayil <skarayil@student.42kocaeli>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/29 13:44:22 by skarayil          #+#    #+#             */
-/*   Updated: 2026/08/30 16:45:08 by skarayil         ###   ########.fr       */
+/*   Created: 2026/08/30 13:29:19 by skarayil          #+#    #+#             */
+/*   Updated: 2026/08/30 16:44:06 by skarayil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 # include <iostream>
+# include <string>
 
 # define CONST "\033[1;4;92m"
 # define COPY "\033[1;4;96m"
 # define ASSIG "\033[1;4;93m"
 # define DEST "\033[1;4;91m"
-# define START "\033[3;30;100m"
-# define VALUE "\033[1;4;97m"
+
+# define ATTACK "\033[3;30;47m"
+# define DAMAGE "\033[3;37;40m"
+# define REPAIR "\033[3;37;100m"
+
+# define START "\033[1;37m"
 # define FINAL "\033[0m"
 
-class Fixed
+class ClapTrap
 {
   private:
-	int _fixedPointValue;
-	static const int _fractionalBits = 8;
+	std::string _name;
+	unsigned int _hitPoints;
+	unsigned int _energyPoints;
+	unsigned int _attackDamage;
 
   public:
-	Fixed(void);
-	Fixed(const int value);
-	Fixed(const float value);
-	Fixed(const Fixed &other);
-	Fixed &operator=(const Fixed &other);
-	~Fixed();
+	ClapTrap(void);
+	ClapTrap(const std::string &name);
+	ClapTrap(const ClapTrap &other);
+	ClapTrap &operator=(const ClapTrap &other);
+	~ClapTrap();
 
-	int getRawBits(void) const;
-	void setRawBits(int const raw);
-
-	float toFloat(void) const;
-	int toInt(void) const;
+	void attack(const std::string &target);
+	void takeDamage(unsigned int amount);
+	void beRepaired(unsigned int amount);
 };
-
-std::ostream &operator<<(std::ostream &os, const Fixed &fixed);
 
 #endif

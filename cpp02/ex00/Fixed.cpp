@@ -6,7 +6,7 @@
 /*   By: skarayil <skarayil@student.42kocaeli>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 15:05:39 by skarayil          #+#    #+#             */
-/*   Updated: 2026/08/29 22:45:10 by skarayil         ###   ########.fr       */
+/*   Updated: 2026/08/30 16:44:47 by skarayil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Fixed &Fixed::operator=(const Fixed &other)
 	return (*this);
 }
 
-Fixed::~Fixed(void)
+Fixed::~Fixed()
 {
 	std::cout << DEST << "Destructor invoked" << FINAL << "\n\n";
 }
