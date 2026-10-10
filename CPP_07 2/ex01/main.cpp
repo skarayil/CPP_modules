@@ -6,7 +6,7 @@
 /*   By: skarayil <skarayil@student.42kocaeli>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/10 16:27:11 by skarayil          #+#    #+#             */
-/*   Updated: 2026/10/10 16:27:57 by skarayil         ###   ########.fr       */
+/*   Updated: 2026/10/10 16:42:00 by skarayil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,16 @@
 #define G       "\033[3;90m"    
 #define W       "\033[1;97m"   
 
+
 template <typename T>
-void printElem(T const& x) {
+void printElem(T const &x)
+{
     std::cout << W << x << RESET << " ";
 }
 
 template <typename T>
-void doubleIt(T& x) {
+void doubleIt(T &x)
+{
     x = x * 2;
 }
 

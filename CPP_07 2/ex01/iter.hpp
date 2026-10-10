@@ -6,7 +6,7 @@
 /*   By: skarayil <skarayil@student.42kocaeli>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/10 16:26:29 by skarayil          #+#    #+#             */
-/*   Updated: 2026/10/10 16:26:41 by skarayil         ###   ########.fr       */
+/*   Updated: 2026/10/10 16:41:16 by skarayil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 
 # include <cstddef>
 
-template <typename T, typename F> void iter(T *array, std::size_t length, F func)
+template <typename T, typename F>
+void iter(T *array, const std::size_t length, F func)
 {
-	for (std::size_t i = 0; i < length; ++i)
-		func(array[i]);
+    for (std::size_t i = 0; i < length; ++i)
+        func(array[i]);
 }
 
 #endif
